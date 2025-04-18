@@ -117,7 +117,7 @@ footer {
 
 .recent-posts {
     font-family: 'Playfair Display', serif;
-    padding: 60px 0; /* Increase vertical padding */
+    
 }
 
 .recent-posts h2 {
@@ -182,15 +182,14 @@ a img {
 .single-article {
     max-width: 800px;
     margin: 0 auto; /* Center the entire article container */
-    padding: 40px 0;
+    
 }
 .article-header {
-    margin-bottom: 40px;
+    display: block;
     text-align: center; /* Ensure text is centered */
 }
 
 .article-header .article-meta {
-    display: block; /* Ensure metadata is on its own line */
     margin-bottom: 10px;
     font-size: 0.9em;
     color: var(--accent-color);
@@ -198,33 +197,19 @@ a img {
     text-transform: uppercase;
 }
 
-
 .article-title {
     font-family: 'Playfair Display', serif; /* Use serif font for the main title */
     font-size: 3em;
     margin-top: 0;
     margin-bottom: 20px;
     line-height: 1.1;
-    display: block; /* Ensure title is a block element */
-    margin-left: auto; /* Auto margins for centering block elements */
-    margin-right: auto;
-    /* If text-align: center on header works, you might not need auto margins */
-    /* But adding them can sometimes help ensure centering */
 }
 
 .article-intro {
     font-family: 'Playfair Display', sans-serif; /* Use sans-serif for intro */
     font-size: 1.2em;
     color: var(--dark-grey);
-    margin-bottom: 40px;
-    display: block; /* Ensure intro is a block element */
-    margin-left: auto; /* Auto margins for centering */
-    margin-right: auto;
     max-width: 700px; /* Optional: Add max-width for readability on wider screens */
-}
-
-.article-image-placeholder {
-     /* Styling is already inline, but you could add more here if needed */
 }
 
 .article-body {
@@ -277,4 +262,68 @@ a img {
     height: 300px; /* Set a height for the container area (adjust if needed) */
     object-fit: cover; /* <<< This is the key: ensures the entire image is visible */
     margin-bottom: 20px; /* Space below the image */
+}
+
+@media (max-width: 768px) {
+
+    header {
+        /* Change flex direction to stack items vertically */
+        flex-direction: column;
+        /* Center items horizontally in the column */
+        align-items: center;
+        /* Adjust padding for smaller screens */
+        padding: 15px 20px;
+        margin-bottom: 20px; /* Adjust margin below header */
+    }
+
+    .site-logo {
+        /* Center the logo when stacked */
+        text-align: center;
+        margin-bottom: 15px; /* Add space below the logo */
+        flex-shrink: 0; /* Prevent the logo from shrinking */
+    }
+
+    .site-logo img {
+         /* Adjust logo size on mobile if needed */
+        max-width: 100px;
+    }
+
+    nav {
+        /* Allow nav to take full width for centering/layout */
+        width: 100%;
+        margin-left: 0; /* Remove left margin */
+        flex-grow: 0; /* Don't let nav grow */
+        text-align: center; /* Center the nav content (like the ul) */
+    }
+
+    nav ul {
+        /* Keep display: flex, but allow wrapping */
+        display: flex;
+        flex-wrap: wrap; /* Allow nav links to wrap to the next line */
+        justify-content: center; /* Center the links horizontally */
+        gap: 10px 20px; /* Adjust vertical and horizontal gap between links */
+        /* Remove margin-top if it was added elsewhere */
+    }
+
+    nav li {
+        /* Ensure list items don't have extra spacing pushing them apart */
+        margin-bottom: 0;
+    }
+
+    nav a {
+        /* Adjust link padding and font size for mobile */
+        font-size: 0.9em; /* Slightly smaller font might fit better */
+        padding: 5px 10px; /* Adjust padding */
+        letter-spacing: 0.05em; /* Reduce letter spacing slightly */
+        display: inline-block; /* Ensure padding works correctly */
+    }
+
+    /* Adjust body padding for mobile */
+    body {
+        padding: 20px;
+    }
+
+    main {
+        padding: 0 20px;
+    }
 }
